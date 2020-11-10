@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>候選人有誰?</title>
+  <style>
+    .wrap{
+      width: 100%;
+      height: 700px;
+      text-align: center;
+      # background: #ccc;
+      # background-image: linear-gradient(20deg, #0ff, #ff0, #f0f);
+    }
+    a{
+      text-decoration: none;
+      font-size: 20px;
+      color: #000;
+
+    }
+    table{
+      margin: auto;
+    }
+    h1{
+
+      border: solid 1px #000;
+    }
+    td{
+      padding: 20px;
+      font-size: 25px;
+      /* border: 1px solid #000; */
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>候選人列表</h1>
+
+    <%= link_to "新增候選人", new_candidate_path %>
+
+    <table>
+      <thead>
+        <tr>
+          <td>候選人姓名</td>
+          <td>政黨</td>
+          <td>政見</td>
+          <td>得票數</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= link_to "投給這位", "#" , data: { confirm: "確定要投他?" } %>
+          </td>
+          <td><%= candidate.name %>(年齡: <%= candidate.age %> 歲)</td>
+          <td><%= candidate.party %></td>
+          <td><%= candidate.politics %></td>
+          <td><%= candidate.votes %></td>
+          <td>
+        
+          <%= link_to "編輯", edit_candidate_path(candidate) %>
+          <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+</body>
+</html>
