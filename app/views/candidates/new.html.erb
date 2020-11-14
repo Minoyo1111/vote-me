@@ -1,29 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我要報名候選人</title>
-  <style>
-    .wrap{
-      width: 100%;
-      text-align: center;
-    }
-    input{
-      margin: 10px;
-    }
-    input:last-child{
-      margin: 20px;
-    }
 
-    a{
-      text-decoration: none;
-      font-size: 20px;
-    }
-  </style>
-</head>
-<body>
-  <div class="wrap">
     <h1>新增候選人</h1>
 
     <%= render "form", candidate: @candidate %>
@@ -32,7 +7,3 @@
     <br/>
 
     <%= link_to '回候選人列表', candidates_path %>
-  </div>
-  
-</body>
-</html>
